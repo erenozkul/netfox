@@ -29,7 +29,7 @@ class NFXSettingsController_OSX: NFXSettingsController, NSTableViewDataSource, N
         #if swift(>=4.2)
         let nibName = cellIdentifier
         #else
-        let nibName = NSNib.Name(rawValue: cellIdentifier)
+        let nibName = cellIdentifier
         #endif
 
         responseTypesTableView.register(NSNib(nibNamed: nibName, bundle: nil),

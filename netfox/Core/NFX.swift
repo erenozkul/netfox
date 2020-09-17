@@ -30,7 +30,7 @@ open class NFX: NSObject
     #if os(OSX)
         var windowController: NFXWindowController?
         let mainMenu: NSMenu? = NSApp.mainMenu?.items[1].submenu
-        var nfxMenuItem: NSMenuItem = NSMenuItem(title: "netfox", action: #selector(NFX.show), keyEquivalent: String.init(describing: (character: NSF9FunctionKey, length: 1)))
+        var nfxMenuItem: NSMenuItem = NSMenuItem(title: "netfox", action: #selector(NFX.show), keyEquivalent: String.init(describing: (character: NSEvent.SpecialKey.f9.rawValue, length: 1)))
     #endif
     
     // swiftSharedInstance is not accessible from ObjC
@@ -324,7 +324,7 @@ extension NFX {
             #if swift(>=4.2)
             let nibName = "NetfoxWindow"
             #else
-            let nibName = NSNib.Name(rawValue: "NetfoxWindow")
+            let nibName = "NetfoxWindow"
             #endif
 
             self.windowController = NFXWindowController(windowNibName: nibName)

@@ -27,7 +27,7 @@ class NFXListController_OSX: NFXListController, NSTableViewDelegate, NSTableView
         #if swift(>=4.2)
         let nibName = cellIdentifier
         #else
-        let nibName = NSNib.Name(rawValue: cellIdentifier)
+        let nibName = cellIdentifier
         #endif
 
         tableView.register(NSNib(nibNamed: nibName, bundle: nil),
@@ -136,7 +136,7 @@ extension NFXListController_OSX: NSControlTextEditingDelegate {
 }
 #else
 extension NFXListController_OSX {
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         handleControlChange(obj: obj)
     }
 }
